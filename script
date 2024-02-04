@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#for i in {1..57};
+#do
+#   ./xidel --extract "//a/resolve-uri(@href, base-uri())" https://freetamilebooks.com/page/$i | grep ebooks.com/ebooks | sort -u >> books.txt
+#done
+
+for n in `cat books.txt`; 
+do
+    echo $n , $(./xidel --extract "//a/resolve-uri(@href, base-uri())" $n | grep cover) , $(./xidel --extract "//a/resolve-uri(@href, base-uri())" $n | grep -i download | sort -u | grep "3/?") >> book_cover_download.csv
+done
