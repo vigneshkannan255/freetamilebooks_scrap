@@ -1,9 +1,9 @@
 #!/bin/bash
 
-#for i in {1..57};
-#do
-#   ./xidel --extract "//a/resolve-uri(@href, base-uri())" https://freetamilebooks.com/page/$i | grep ebooks.com/ebooks | sort -u >> books.txt
-#done
+for i in {1..57};
+do
+   ./xidel --extract "//a/resolve-uri(@href, base-uri())" https://freetamilebooks.com/page/$i | grep ebooks.com/ebooks | sort -u >> books.txt
+done
 
 for n in `cat books.txt`; 
 do
